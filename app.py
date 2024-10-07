@@ -14,10 +14,11 @@ def home():
 
 @app.route('/robots.txt')
 def robots_txt():
+    # make robots.txt Disallow on dev domains
     if request.host == 'dev.simplesnap.de' or request.host == 'simplesnap.vercel.app':
         content = "User-agent: *\nDisallow: /"
     else:
-        content = ""
+        content = "User-agent: *\nAllow: /"
 
     return Response(content, mimetype='text/plain')
 
