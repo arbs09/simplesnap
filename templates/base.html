@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="de">
+    <head>
+        {% include 'head.html' %}
+        {% block title %}{% set page_title = "" %}{% endblock %}
+        <title>{{ page_title }}</title>
+    </head>
+    <body>
+        {% include 'nav.html' %}
+        {% block content %}{% endblock %}
+        {% include 'footer.html' %}
+    </body>
+</html>
