@@ -14,11 +14,9 @@ def home():
 
 @app.route('/robots.txt')
 def robots_txt():
-    # Check if the request's host is from 'dev.simplesnap.de'
-    if request.host == 'dev.simplesnap.de':
+    if request.host == 'dev.simplesnap.de' or request.host == 'simplesnap.vercel.app':
         content = "User-agent: *\nDisallow: /"
     else:
-        # Disallow crawling for all other domains
         content = ""
 
     return Response(content, mimetype='text/plain')
