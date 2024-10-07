@@ -1,4 +1,4 @@
-from flask import Flask, request, abort, render_template
+from flask import Flask, request, abort, render_template, Response
 
 app = Flask(__name__)
 
@@ -12,6 +12,16 @@ users_db = {
 def home():
     return render_template('home.html')
 
+@app.route('/robots.txt')
+def robots_txt():
+    # Check if the request's host is from 'dev.simplesnap.de'
+    if request.host == 'dev.simplesnap.de':
+        content = "User-agent: *\nDisallow: /"
+    else:
+        # Disallow crawling for all other domains
+        content = ""
+
+    return Response(content, mimetype='text/plain')
 
 @app.route('/<username>')
 def user_home_path(username):
