@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% set page_title = "{{ user }}'s Profile" %}
+{% set page_title = "{{ user.name }}'s Profile" %}
 {% block content %}
 <h1 class="text-center text-4xl underline underline-offset-8 font-semibold tracking-wide">{{ user.name }}</h1>
 {% endblock %}
