@@ -1,1 +1,1 @@
-npx tailwindcss -i ./static/input.css -o ./static/main.css --watch
+npx tailwindcss -i ./static/input.css -o ./static/main.css --watch --minify
